@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуге | ЉУБИША ГЕОМЕТАР</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 2%;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .lightbox-close:hover { color: #4caf50; }
+        .clickable-image {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html" class="active">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Геодетске услуге</h1>
+        <p>Све што вам треба за прецизна мерења и катастар</p>
+    </section>
+
+    <section class="section">
+        <div class="grid-3">
+            <!-- Снимање терена -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/snimanje-terena.jpg" alt="Снимање терена" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Снимање терена</h3>
+                    <p>Детаљно снимање за потребе пројектовања и легализације.</p>
+                    <ul>
+                        <li>Снимање објеката</li>
+                        <li>Снимање инфраструктуре</li>
+                        <li>Топографска снимања</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Исколчавање -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/iskolcavanje.jpg" alt="Исколчавање" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Исколчавање објеката</h3>
+                    <p>Тачно преношење пројекта на терен.</p>
+                    <ul>
+                        <li>Исколчавање темеља</li>
+                        <li>Исколчавање осовина</li>
+                        <li>Контролна мерења</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Парцелација -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/parcelacija.jpg" alt="Парцелација" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Парцелација</h3>
+                    <p>Формирање нових парцела и деоба.</p>
+                    <ul>
+                        <li>Израда елабората</li>
+                        <li>Парцелација земљишта</li>
+                        <li>Препарцелација</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Легализација -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/legalizacija.jpg" alt="Легализација" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Легализација</h3>
+                    <p>Подршка за легализацију објеката.</p>
+                    <ul>
+                        <li>Снимање за легализацију</li>
+                        <li>Израда елабората</li>
+                        <li>Овера пројеката</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Елаборати -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/elaborat.jpg" alt="Геодетски елаборати" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Геодетски елаборати</h3>
+                    <p>Израда свих врста елабората.</p>
+                    <ul>
+                        <li>Елаборат геодетских радова</li>
+                        <li>Елаборат парцелације</li>
+                        <li>Елаборат исколчавања</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 3D скенирање -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/3d-skeniranje.jpg" alt="3D скенирање" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>3Д скенирање</h3>
+                    <p>Прецизно 3Д скенирање објеката.</p>
+                    <ul>
+                        <li>Архитектонско снимање</li>
+                        <li>Индустријско мерење</li>
+                        <li>Облак тачака</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--plava); color: white; text-align: center;">
+        <h2>Треба вам понуда?</h2>
+        <p>Контактирајте нас за бесплатну процену.</p>
+        <a href="kontakt.html" class="btn btn-primary">Затражите понуду</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openLightbox(imgSrc, imgAlt) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-img').alt = imgAlt;
+            document.getElementById('lightbox').style.display = 'block';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.clickable-image').forEach(img => {
+                img.addEventListener('click', () => openLightbox(img.src, img.alt));
+            });
+        });
+    </script>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>

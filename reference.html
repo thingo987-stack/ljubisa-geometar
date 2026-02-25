@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Референце | ЉУБИША ГЕОМЕТАР</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="mobileMenu">
+
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html" class="active">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Референце</h1>
+        <p>Наши успешно реализовани пројекти</p>
+    </section>
+
+    <section class="section">
+        <p style="text-align: center; font-size: 1.2rem;">Страница у изради. Ускоро галерија пројеката.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>

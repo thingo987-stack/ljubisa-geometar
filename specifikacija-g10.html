@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian G10 | Спецификација</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Lightbox za PDF */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 99999;
+        }
+        
+        .pdf-modal-content {
+            position: relative;
+            width: 95%;
+            max-width: 1200px;
+            height: 90%;
+            margin: 2% auto;
+            background: white;
+            border: 3px solid #f39c12;
+            border-radius: 5px;
+        }
+        
+        .pdf-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .pdf-close {
+            position: absolute;
+            top: -35px;
+            right: -35px;
+            color: #f39c12;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #1a1a1a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #f39c12;
+        }
+        
+        .pdf-close:hover {
+            background: #f1c40f;
+            color: #000;
+            border-color: #f1c40f;
+        }
+        
+        /* Stranica je zamračena dok se PDF ne otvori */
+        body {
+            background: #1a1a1a;
+        }
+        
+        .spec-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid #f39c12;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <div class="spec-container">
+        <a href="oprema.html" style="display: inline-block; padding: 0.8rem 1.5rem; background: #f39c12; color: #000; text-decoration: none; border-radius: 50px; margin-bottom: 2rem;">← Назад на опрему</a>
+        
+        <div style="display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+            <img src="images/gnss-g10.jpg" alt="G10" style="width: 200px; border-radius: 10px; border: 3px solid #f39c12;">
+            <div>
+                <h1 style="color: #f39c12; font-size: 2.5rem; margin: 0;">Meridian G10</h1>
+                <div style="font-size: 2rem; color: white; margin: 0.5rem 0;">
+                    <small style="color: #999; text-decoration: line-through; font-size: 1.2rem;">€4.990</small> €4.490
+                </div>
+                <p style="color: #f1c40f; font-size: 1.2rem;">🔴 Акција -10%</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0;">
+            <a href="pdf/meridian-g10-specifikacija.pdf" download style="display: inline-block; padding: 0.8rem 1.5rem; background: transparent; color: #f1c40f; border: 2px solid #f1c40f; border-radius: 50px; text-decoration: none;">📥 Преузми PDF</a>
+        </div>
+    </div>
+
+    <!-- PDF Modal - otvara se odmah -->
+    <div id="pdfModal" class="pdf-modal" onclick="closePDF()">
+        <div class="pdf-modal-content" onclick="event.stopPropagation()">
+            <span class="pdf-close" onclick="closePDF()">&times;</span>
+            <iframe id="pdfFrame" src="pdf/meridian-g10-specifikacija.pdf"></iframe>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш партнер за геодетске услуге и опрему.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+                <p><a href="reference.html">Референце</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+                <p>thingo987@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // OTVARA SE ODMAH - bez ikakvog čekanja
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('pdfModal').style.display = 'block';
+        });
+
+        function closePDF() {
+            document.getElementById('pdfModal').style.display = 'none';
+            // Opciono: vrati se na opremu
+            // window.location.href = 'oprema.html';
+        }
+    </script>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>

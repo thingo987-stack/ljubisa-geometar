@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опрема | ЉУБИША ГЕОМЕТАР</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Dodatni stilovi za opremu */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 2rem 5%;
+        }
+
+        .category-btn {
+            padding: 0.7rem 1.8rem;
+            border: 2px solid #f39c12;
+            background: transparent;
+            color: #f39c12;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin: 0.25rem;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #f39c12;
+            color: #000000;
+        }
+
+        .category-btn.akcija-tab {
+            border-color: #f1c40f;
+            color: #f1c40f;
+        }
+
+        .category-btn.akcija-tab:hover,
+        .category-btn.akcija-tab.active {
+            background: #f1c40f;
+            color: #000000;
+            border-color: #f1c40f;
+        }
+
+        .category-btn.akcija-tab::before {
+            content: "🔥";
+            margin-right: 5px;
+        }
+
+        .product-category-badge {
+            display: inline-block;
+            background: transparent;
+            color: #f1c40f;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid #f1c40f;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 1rem 0;
+        }
+
+        .product-price small {
+            font-size: 1rem;
+            color: #999999;
+            font-weight: 400;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+
+        .product-btn {
+            background: #f39c12;
+            color: #000000;
+            border: 2px solid #f39c12;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .product-btn:hover {
+            background: #f1c40f;
+            border-color: #f1c40f;
+            color: #000000;
+        }
+
+        .product-footer {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .akcija-badge-small {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f39c12;
+            color: #000000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+        }
+
+        /* Stil za kartice */
+        .card {
+            position: relative;
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333333;
+            cursor: pointer;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.3);
+            border-color: #f1c40f;
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .card-image img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-content h3 {
+            color: #f1c40f;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .card-content p {
+            color: #999999;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .product-footer {
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .categories {
+                gap: 0.5rem;
+            }
+            .category-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .product-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .product-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Proveravamo da li je pozvano sa parametrom ?tab=akcija
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('tab') && urlParams.get('tab') === 'akcija') {
+                setTimeout(function() {
+                    const buttons = document.querySelectorAll('.category-btn');
+                    buttons.forEach(btn => {
+                        if (btn.textContent.includes('Акција') || btn.textContent.includes('Akcija')) {
+                            btn.click();
+                            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    });
+                }, 100);
+            }
+        });
+    </script>
+
+    <nav class="navbar">
+    <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html" class="active">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Професионална геодетска опрема</h1>
+        <p>Меридиан, ГНСС, тоталне станице и ручни скенери</p>
+    </section>
+
+    <!-- Kategorije sa AKCIJA tabom -->
+    <div class="categories">
+        <button class="category-btn active" onclick="filterProducts('sve')">Сва опрема</button>
+        <button class="category-btn akcija-tab" onclick="filterProducts('akcija')">Акција</button>
+        <button class="category-btn" onclick="filterProducts('GNSS')">ГНСС</button>
+        <button class="category-btn" onclick="filterProducts('Totalna stanica')">Тоталне станице</button>
+        <button class="category-btn" onclick="filterProducts('Ručni skener')">Ручни скенери</button>
+        <button class="category-btn" onclick="filterProducts('Pribor')">Прибор</button>
+    </div>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="grid-3" id="products-grid">
+            <!-- Meridian G10 - NA AKCIJI -->
+            <div class="card" data-category="GNSS akcija" onclick="window.location.href='specifikacija-g10.html';">
+                <div class="card-image">
+                    <img src="images/gnss-g10.jpg" alt="Меридиан Г10">
+                    <div class="akcija-badge-small">-10%</div>
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">ГНСС</span>
+                    <h3>Меридиан Г10</h3>
+                    <p>1760 канала, RTK, IP67, A3 формат</p>
+                    <div class="product-price">
+                        <small>€4.990</small> €4.490
+                    </div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meridian T12 -->
+            <div class="card" data-category="Totalna stanica" onclick="window.location.href='specifikacija-t12.html';">
+                <div class="card-image">
+                    <img src="images/totalna-t12.jpg" alt="Меридиан Т12">
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">Тотална станица</span>
+                    <h3>Меридиан Т12</h3>
+                    <p>Роботска, домет 1000м, прецизност 1"</p>
+                    <div class="product-price">€8.900</div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ScanHand 3D - NA AKCIJI -->
+            <div class="card" data-category="Ručni skener akcija" onclick="window.location.href='specifikacija-scanhand.html';">
+                <div class="card-image">
+                    <img src="images/scanhand.jpg" alt="СцанХанд 3Д">
+                    <div class="akcija-badge-small">-15%</div>
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">Ручни скенер</span>
+                    <h3>СцанХанд 3Д</h3>
+                    <p>300.000 тачака/с, домет 100м</p>
+                    <div class="product-price">
+                        <small>€3.490</small> €2.990
+                    </div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meridian G5 -->
+            <div class="card" data-category="GNSS" onclick="window.location.href='specifikacija-g5.html';">
+                <div class="card-image">
+                    <img src="images/gnss-g5.jpg" alt="Меридиан Г5">
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">ГНСС</span>
+                    <h3>Меридиан Г5</h3>
+                    <p>400 канала, компактни, ЦОРС подршка</p>
+                    <div class="product-price">€3.290</div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profesionalni stativ -->
+            <div class="card" data-category="Pribor" onclick="window.location.href='specifikacija-stativ.html';">
+                <div class="card-image">
+                    <img src="images/stativ.jpg" alt="Статив">
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">Прибор</span>
+                    <h3>Професионални статив</h3>
+                    <p>Алуминијум, висина 1.1-1.8м</p>
+                    <div class="product-price">€290</div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meridian OptiLevel - NA AKCIJI -->
+            <div class="card" data-category="Pribor akcija" onclick="window.location.href='specifikacija-nivelir.html';">
+                <div class="card-image">
+                    <img src="images/nivelir.jpg" alt="Нивелир">
+                    <div class="akcija-badge-small">-20%</div>
+                </div>
+                <div class="card-content">
+                    <span class="product-category-badge">Прибор</span>
+                    <h3>Меридиан ОптиЛев</h3>
+                    <p>Дигитални нивелир, 0.3мм/км</p>
+                    <div class="product-price">
+                        <small>€1.890</small> €1.490
+                    </div>
+                    <div class="product-footer">
+                        <a href="kontakt.html" class="product-btn" onclick="event.stopPropagation();">Упит</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер за геодетске услуге и опрему.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+                <p><a href="reference.html">Референце</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+                <p>thingo987@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.category-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                
+                if (category === 'sve') {
+                    product.style.display = 'block';
+                } else if (category === 'akcija') {
+                    if (productCategory && productCategory.includes('akcija')) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                } else {
+                    if (productCategory && productCategory.includes(category)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>

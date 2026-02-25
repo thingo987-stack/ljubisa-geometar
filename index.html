@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЉУБИША ГЕОМЕТАР | Геодезија и опрема</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Dodatni CSS za mobilni meni */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #f39c12;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #000000;
+                padding: 1rem 0;
+                border-bottom: 3px solid #f39c12;
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 0.8rem 0;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+                font-size: 1.2rem;
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html" class="active">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Прецизност на терену,<br>поузданост у опреми</h1>
+        <p>ЉУБИША ГЕОМЕТАР - ваш партнер за геодетске услуге и врхунску Меридиан опрему</p>
+        <div>
+            <a href="usluge.html" class="btn btn-primary">Наше услуге</a>
+            <a href="oprema.html" class="btn btn-outline">Погледај опрему</a>
+        </div>
+    </section>
+
+    <!-- ===== TRENUTNO NA AKCIJI SEKCIJA ===== -->
+    <section class="akcija-sekcija">
+        <h2 class="akcija-naslov">Тренутно на <span>акцији</span></h2>
+        <p class="akcija-text">Искористите попусте до 20% на одабране Meridian производе!</p>
+        
+        <div class="akcija-grid">
+            <div class="akcija-proizvod">
+                <h4>Meridian G10 GNSS</h4>
+                <p>800+ канала, прецизност 5мм+1ппм</p>
+                <div class="akcija-cena">
+                    <small>€4.990</small> €4.490
+                </div>
+                <a href="oprema.html?tab=akcija" class="akcija-btn">Сазнај више</a>
+            </div>
+
+            <div class="akcija-proizvod">
+                <h4>Meridian T12 Robotic</h4>
+                <p>Потпуно роботска, домет 1000м</p>
+                <div class="akcija-cena">
+                    <small>€8.900</small> €7.900
+                </div>
+                <a href="oprema.html?tab=akcija" class="akcija-btn">Сазнај више</a>
+            </div>
+
+            <div class="akcija-proizvod">
+                <h4>ScanHand 3D</h4>
+                <p>Ручни скенер, 300.000 тачака/с</p>
+                <div class="akcija-cena">
+                    <small>€3.490</small> €3.190
+                </div>
+                <a href="oprema.html?tab=akcija" class="akcija-btn">Сазнај више</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="oprema.html?tab=akcija" class="btn btn-primary" style="background: #f1c40f; color: #000000;">Погледај сву опрему на акцији →</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Наше <span>геодетске услуге</span></h2>
+        <p class="section-subtitle">Професионалне услуге за све врсте пројеката</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/snimanje-terena.jpg" alt="Снимање терена" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Снимање терена</h3>
+                    <p>Прецизно снимање за потребе пројектовања, легализације и катастра.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/iskolcavanje.jpg" alt="Исколчавање објеката" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Исколчавање објеката</h3>
+                    <p>Тачно преношење пројекта на терен за све врсте грађевина.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/parcelacija.jpg" alt="Парцелација" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Парцелација и препарцелација</h3>
+                    <p>Формирање нових парцела, деоба и спајање катастарских парцела.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="usluge.html" class="btn btn-primary">Све услуге →</a>
+        </div>
+    </section>
+
+    <section class="section" style="background: #1a1a1a; border-radius: 20px; margin: 2rem auto; padding: 3rem; max-width: 1400px; width: 90%;">
+        <h2 class="section-title">Меридиан <span>опрема</span></h2>
+        <p class="section-subtitle">Врхунски геодетски инструменти за професионалце</p>
+        
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/gnss.jpg" alt="ГНСС пријемници" class="clickable-image">
+                    <div class="akcija-badge-small">-10%</div>
+                </div>
+                <div class="card-content">
+                    <h3>ГНСС пријемници</h3>
+                    <p>Меридиан Г10, Г5 Плус</p>
+                    <div class="card-price">
+                        <small>€4.990</small> €4.490
+                    </div>
+                    <a href="kontakt.html" class="card-btn" onclick="event.stopPropagation();">Упит</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/totalna-stanica.jpg" alt="Тоталне станице" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Тоталне станице</h3>
+                    <p>Меридиан Т12 Роботиц</p>
+                    <div class="card-price">€8.900</div>
+                    <a href="kontakt.html" class="card-btn" onclick="event.stopPropagation();">Упит</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/skener.jpg" alt="Ручни скенери" class="clickable-image">
+                    <div class="akcija-badge-small">-15%</div>
+                </div>
+                <div class="card-content">
+                    <h3>Ручни скенери</h3>
+                    <p>Меридиан СцанХанд 3Д</p>
+                    <div class="card-price">
+                        <small>€3.490</small> €2.990
+                    </div>
+                    <a href="kontakt.html" class="card-btn" onclick="event.stopPropagation();">Упит</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-image">
+                    <img src="images/pribor.jpg" alt="Прибор" class="clickable-image">
+                </div>
+                <div class="card-content">
+                    <h3>Прибор и додатна опрема</h3>
+                    <p>Стативи, призме, батерије</p>
+                    <div class="card-price">€290</div>
+                    <a href="kontakt.html" class="card-btn" onclick="event.stopPropagation();">Упит</a>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="oprema.html" class="btn btn-primary">Сва опрема →</a>
+        </div>
+    </section>
+
+    <section class="section" style="text-align: center;">
+        <h2 class="section-title">Треба вам <span>стручан савет?</span></h2>
+        <p style="max-width: 600px; margin: 0 auto 2rem; color: #999999;">Контактирајте нас за бесплатну консултацију и демонстрацију опреме</p>
+        <a href="kontakt.html" class="btn btn-primary">Контактирајте нас</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер за геодетске услуге и опрему од 2010. године.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+                <p><a href="reference.html">Референце</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+                <p>thingo987@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(imgSrc, imgAlt) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-img').alt = imgAlt;
+            document.getElementById('lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.clickable-image').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openLightbox(this.src, this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

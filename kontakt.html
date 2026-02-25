@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакт | ЉУБИША ГЕОМЕТАР</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Dodatni CSS za mobilni meni */
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: #f39c12;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #000000;
+                padding: 1rem 0;
+                border-bottom: 3px solid #f39c12;
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 0.8rem 0;
+            }
+
+            .nav-links a {
+                color: #ffffff;
+                font-size: 1.2rem;
+                display: block;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html" class="active">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Контактирајте нас</h1>
+        <p>Ту смо за сва ваша питања, понуде и демонстрације опреме</p>
+    </section>
+
+    <section class="section">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+            <div>
+                <h2 style="color: #f39c12; margin-bottom: 2rem;">Информације</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #f1c40f; margin-bottom: 0.5rem;">Адреса</h3>
+                    <p style="color: #e0e0e0;">Трг Палих Бораца бр.1<br>12500 Голубац, Србија</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #f1c40f; margin-bottom: 0.5rem;">Телефон</h3>
+                    <p style="color: #e0e0e0;">+381 64 458 7732</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #f1c40f; margin-bottom: 0.5rem;">Емаил</h3>
+                    <p style="color: #e0e0e0;">thingo987@gmail.com</p>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: #f1c40f; margin-bottom: 0.5rem;">Радно време</h3>
+                    <p style="color: #e0e0e0;">Понедељак - Петак: 08:00 - 16:00<br>Субота: 09:00 - 13:00<br>Недеља: Затворено</p>
+                </div>
+            </div>
+            
+            <div>
+                <h2 style="color: #f39c12; margin-bottom: 2rem;">Пошаљите поруку</h2>
+                
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="ime" placeholder="Ваше име и презиме" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Ваш емаил" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="telefon" placeholder="Ваш телефон">
+                    </div>
+                    
+                    <div class="form-group">
+                        <select name="tema">
+                            <option value="">Изаберите тему</option>
+                            <option value="usluge">Геодетске услуге</option>
+                            <option value="oprema">Опрема (Меридиан, ГНСС...)</option>
+                            <option value="demonstracija">Демонстрација опреме</option>
+                            <option value="ostalo">Остало</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="poruka" rows="5" placeholder="Ваша порука" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Пошаљи поруку</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Где се <span>налазимо</span></h2>
+        <div style="width: 100%; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 2px solid #f39c12;">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1419.2098564180797!2d21.62972843330309!3d44.64978304465227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4751055fa7db3a2d%3A0x4bb088112c6a6317!2sMeridiangnss!5e0!3m2!1sen!2srs!4v1771966649358!5m2!1sen!2srs" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер за геодетске услуге и опрему.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+                <p><a href="reference.html">Референце</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+                <p>thingo987@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        function openLightbox(imgSrc, imgAlt) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox-img').alt = imgAlt;
+            document.getElementById('lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.clickable-image').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openLightbox(this.src, this.alt);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

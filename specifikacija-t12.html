@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian T12 | Спецификација</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .spec-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 1px solid #f39c12;
+        }
+        
+        .spec-header {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .spec-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .spec-image img {
+            width: 100%;
+            border-radius: 15px;
+            border: 3px solid #f39c12;
+        }
+        
+        .spec-title {
+            flex: 2;
+        }
+        
+        .spec-title h1 {
+            color: #f39c12;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-title .price {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #0a0a0a;
+            border-radius: 15px;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .spec-section h2 {
+            color: #f1c40f;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .spec-item strong {
+            color: #f39c12;
+        }
+        
+        .spec-item span {
+            color: #ffffff;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            background: #f39c12;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #f1c40f;
+        }
+        
+        @media (max-width: 768px) {
+            .spec-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="logo">ЉУБИША<span>ГЕОМЕТАР</span></div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="mobileMenu">
+            <li><a href="index.html">Почетна</a></li>
+            <li><a href="onama.html">О нама</a></li>
+            <li><a href="usluge.html">Услуге</a></li>
+            <li><a href="oprema.html">Опрема</a></li>
+            <li><a href="reference.html">Референце</a></li>
+            <li><a href="kontakt.html">Контакт</a></li>
+        </ul>
+    </nav>
+
+    <div class="spec-container">
+        <a href="oprema.html" class="back-btn">← Назад на опрему</a>
+        
+        <div class="spec-header">
+            <div class="spec-image">
+                <img src="images/totalna-t12.jpg" alt="Meridian T12">
+            </div>
+            <div class="spec-title">
+                <h1>Meridian T12 Robotic тотална станица</h1>
+                <div class="price">€8.900</div>
+            </div>
+        </div>
+
+        <div class="spec-section">
+            <h2>📏 Основне карактеристике</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Тип:</strong> <span>Роботска тотална станица</span></div>
+                <div class="spec-item"><strong>Домет без призме:</strong> <span>1000m</span></div>
+                <div class="spec-item"><strong>Прецизност:</strong> <span>1" (секунда)</span></div>
+                <div class="spec-item"><strong>Домет са призмом:</strong> <span>5000m</span></div>
+                <div class="spec-item"><strong>Увећање:</strong> <span>30x</span></div>
+            </div>
+        </div>
+
+        <div class="spec-section">
+            <h2>📡 Мерење</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Време мерења:</strong> <span>0.3s</span></div>
+                <div class="spec-item"><strong>Компензатор:</strong> <span>Двоосни, ±5'</span></div>
+                <div class="spec-item"><strong>Комуникација:</strong> <span>Bluetooth, Wi-Fi, USB</span></div>
+                <div class="spec-item"><strong>Контролер:</strong> <span>Андроид, бежични</span></div>
+            </div>
+        </div>
+
+        <div class="spec-section">
+            <h2>🔋 Батерија и тежина</h2>
+            <div class="spec-grid">
+                <div class="spec-item"><strong>Батерија:</strong> <span>Li-Ion, 7.4V</span></div>
+                <div class="spec-item"><strong>Радни век:</strong> <span>До 10 сати</span></div>
+                <div class="spec-item"><strong>Тежина:</strong> <span>5.2kg</span></div>
+                <div class="spec-item"><strong>Радна температура:</strong> <span>-20°C до +50°C</span></div>
+                <div class="spec-item"><strong>Заштита:</strong> <span>IP65</span></div>
+            </div>
+        </div>
+
+        <a href="oprema.html" class="back-btn">← Назад на опрему</a>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3>ЉУБИША ГЕОМЕТАР</h3>
+                <p>Ваш поуздан партнер за геодетске услуге и опрему.</p>
+            </div>
+            <div>
+                <h3>Брзи линкови</h3>
+                <p><a href="usluge.html">Услуге</a></p>
+                <p><a href="oprema.html">Опрема</a></p>
+                <p><a href="reference.html">Референце</a></p>
+            </div>
+            <div>
+                <h3>Контакт</h3>
+                <p>Трг Палих Бораца бр.1, Голубац</p>
+                <p>+381 64 458 7732</p>
+                <p>thingo987@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+</script>
+</body>
+</html>
